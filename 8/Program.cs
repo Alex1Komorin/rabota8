@@ -12,12 +12,9 @@ namespace _8
         {
 
             int a, i, e=1, r1=1, r2, w;
-            Console.WriteLine("Введите натуральное число");
-            bool f = int.TryParse(Console.ReadLine(), out a);
+            a = Natural();
             string q = a.ToString();
-            if (a > 1 && f )
-            {
-                for (i = 1; i < q.Length; i++)
+            for (i = 1; i < q.Length; i++)
                 {
                     e = e * 10;
                     r1 = a / e;
@@ -25,7 +22,19 @@ namespace _8
                 r2 = a % 10;
                 w = a - r1 * e + r2*e -r2+r1;
                 Console.WriteLine("Преобразованное число = {0}", w);
+        }
+
+        public static int Natural()
+        {
+            int a;
+            Console.WriteLine("Введите натуральное число");
+            bool f = int.TryParse(Console.ReadLine(), out a);
+            while (!f || a<0)
+            {
+                Console.WriteLine("Неверные данные, попробуйте ещё");
+                f = int.TryParse(Console.ReadLine(), out a);
             }
+            return a;
         }
     }
 }
