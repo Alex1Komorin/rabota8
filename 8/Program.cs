@@ -22,6 +22,7 @@ namespace _8
                 r2 = a % 10;
                 w = a - r1 * e + r2*e -r2+r1;
                 Console.WriteLine("Преобразованное число = {0}", w);
+                
         }
 
         public static int Natural()
